@@ -5,11 +5,20 @@ const Home = () => {
       <div className="bg-white rounded-lg w-full overflow-auto p-6 right">
         <div className="flex justify-between items-center mb-6 w-full px-1">
           <div className="logo text-3xl font-bold">ContactKeeper</div>
-          <div className=" border-b border-zinc-400 w-[25%]">
+          <div className="w-[40%] flex gap-2">
+          <div className=" border-b border-zinc-400 w-[90%] px-1 flex gap-2">
             <input
-              className=" focus:outline-none focus:border-none mb-1"
+              className=" focus:outline-none focus:border-none mb-1 w-full"
               placeholder="Search your contacts"
             />
+            <i class="ri-search-2-line"></i>
+
+          </div>
+          <select name="type" className="px-2">
+          <option value="allContacts">All Contacts</option>
+          <option value="favorites">Favorites</option>
+          <option value="recentlyAdded">Recently Added</option>
+        </select>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-6">
