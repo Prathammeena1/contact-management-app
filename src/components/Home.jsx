@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
               className=" focus:outline-none focus:border-none mb-1 w-full"
               placeholder="Search your contacts"
             />
-            <i class="ri-search-2-line"></i>
+            <i className="ri-search-2-line"></i>
 
           </div>
           <select name="type" className="px-2">
@@ -35,12 +36,9 @@ const Home = () => {
               <p className="text-xl font-semibold">Member {index + 1}</p>
               <p className="text-gray-500">member{index + 1}@gmail.com</p>
               <div className="flex mt-4 space-x-2">
-                <button className="bg-gray-200 text-gray-800 px-4 py-2 rounded">
-                  Edit
-                </button>
-                <button className="bg-blue-500 text-white px-4 py-2 rounded">
-                  Delete
-                </button>
+                <Button style="border" text='edit' />
+                <Button style="fill" text='delete' />
+                
               </div>
             </div>
           ))}
