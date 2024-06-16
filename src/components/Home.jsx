@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "./Button";
+import { useDispatch, useSelector } from "react-redux";
+import { load } from "../store/reducers/contactAction";
+import contactSlice from "../store/slice/contactSlice";
 
-const Home = () => {
+const Home =  () => {
+  
+  const {value} = useSelector(state=>state.contactSlice)
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(load());
+  },[false])
+
   return (
       <div className="bg-white rounded-lg w-full overflow-auto p-6 right">
         <div className="flex justify-between items-center mb-6 w-full px-1">
@@ -23,22 +33,22 @@ const Home = () => {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-6">
-          {Array.from({ length: 4 }).map((_, index) => (
+          {value.map((contact, index) => (
             <div
               key={index}
               className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
             >
               <img
-                src={`https://via.placeholder.com/100?text=${index + 1}`}
+                src={contact.image}
                 alt="Member"
                 className="rounded-full mb-4 w-24 h-24"
               />
-              <p className="text-xl font-semibold">Member {index + 1}</p>
-              <p className="text-gray-500">member{index + 1}@gmail.com</p>
+              <p className="text-xl font-semibold text-[1.7vw]"> {contact.name}</p>
+              <p className="text-gray-500 text-[1vw]">{contact.email}</p>
+              <p className="text-gray-500 text-[1vw]">{contact.number}</p>
               <div className="flex mt-4 space-x-2">
                 <Button style="border" text='edit' />
                 <Button style="fill" text='delete' />
-                
               </div>
             </div>
           ))}
