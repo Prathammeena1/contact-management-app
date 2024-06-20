@@ -36,7 +36,7 @@ const Home =  () => {
 
 
   return (
-      <div className="bg-white rounded-lg w-full overflow-auto p-6 right">
+      <div className="bg-zinc-900 rounded-lg w-full overflow-auto p-6 right">
         <div className="flex justify-between items-center mb-6 w-full px-1">
           <div className="logo text-3xl font-bold">ContactKeeper</div>
           <div className="w-[40%] flex gap-2">
@@ -44,16 +44,16 @@ const Home =  () => {
             <input
               onChange={(e)=> searchHandler(e)}
               value={search}
-              className=" focus:outline-none focus:border-none mb-1 w-full"
+              className=" focus:outline-none focus:border-none mb-1 w-full bg-transparent"
               placeholder="Search your contacts"
             />
             <i className="ri-search-2-line"></i>
 
           </div>
-          <select name="type" className="px-2">
-          <option value="allContacts">All Contacts</option>
-          <option value="favorites">Favorites</option>
-          <option value="recentlyAdded">Recently Added</option>
+          <select name="type" className="px-2 bg-transparent">
+          <option className="bg-transparent" value="allContacts">All Contacts</option>
+          <option className="bg-transparent" value="favorites">Favorites</option>
+          <option className="bg-transparent" value="recentlyAdded">Recently Added</option>
         </select>
           </div>
         </div>
@@ -61,7 +61,7 @@ const Home =  () => {
           { contacts ? contacts.map((contact, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center"
+              className="bg-zinc-800 rounded-lg shadow-md p-4 flex flex-col items-center"
             >
               <img
                 src={contact.image}

@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const MyProfile = () => {
   return (
-    <div className="bg-white rounded-lg w-full overflow-auto p-6 right">
+    <div className="bg-zinc-900 rounded-lg w-full overflow-auto p-6 right">
       <div className="flex justify-between items-center mb-6 w-full px-1">
         <div className="logo text-3xl font-bold">ContactKeeper</div>
       </div>

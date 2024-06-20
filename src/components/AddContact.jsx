@@ -27,7 +27,7 @@ const AddContact = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg w-full overflow-auto p-6 right">
+    <div className="bg-zinc-900 rounded-lg w-full overflow-auto p-6 right">
       <div className="flex justify-between items-center mb-6 w-full px-1">
         <div className="logo text-3xl font-bold">ContactKeeper</div>
       </div>
@@ -44,7 +44,7 @@ const AddContact = () => {
             name="image"
             type="url"
             placeholder="Image URL"
-            className="border rounded px-4 py-2 mt-2 w-full text-center"
+            className="bg-transparent border rounded px-4 py-2 mt-2 w-full text-center"
           />
           <input
             required
@@ -53,7 +53,7 @@ const AddContact = () => {
             name="name"
             type="text"
             placeholder="Addie Barton"
-            className="border rounded px-4 py-2 mt-2 w-full text-center"
+            className="bg-transparent border rounded px-4 py-2 mt-2 w-full text-center"
           />
           <input
             required
@@ -62,7 +62,7 @@ const AddContact = () => {
             name="email"
             type="email"
             placeholder="addie.barton@gmail.com"
-            className="border rounded px-4 py-2 mt-2 w-full text-center"
+            className="bg-transparent border rounded px-4 py-2 mt-2 w-full text-center"
           />
           <input
             required
@@ -71,7 +71,7 @@ const AddContact = () => {
             name="number"
             type="number"
             placeholder="9876543210"
-            className="border rounded px-4 py-2 mt-2 w-full text-center"
+            className="bg-transparent border rounded px-4 py-2 mt-2 w-full text-center"
           />
           <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded">
             Add

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <nav className="h-full w-[20%] bg-white p-6 rounded-lg transition-all ease-in-out  flex flex-col gap-3">
+    <nav className="h-full w-[20%] bg-zinc-900 p-6 rounded-lg transition-all ease-in-out  flex flex-col gap-3">
         <NavLink
           to="/"
           className={(e) =>
