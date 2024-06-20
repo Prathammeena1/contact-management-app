@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteContact, load } from "../store/reducers/contactAction";
@@ -7,7 +7,23 @@ import { Link } from "react-router-dom";
 const Home =  () => {
   
   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contactSlice.value);
+  
+  const allContacts = useSelector((state) => state.contactSlice.value)
+
+
+  const [contacts,setcontact] = useState(allContacts);
+
+  const [search, setsearch] = useState("")
+
+  const searchHandler = (e)=>{
+    setsearch(e.target.value);
+    if(e.target.value !== ""){
+      setcontact(contacts.filter((contact)=> contact.name.toLowerCase().includes(e.target.value.toLowerCase())))
+    }else{
+      setcontact(allContacts)
+    }
+
+  }
 
   useEffect(() => {
     dispatch(load());
@@ -26,6 +42,8 @@ const Home =  () => {
           <div className="w-[40%] flex gap-2">
           <div className=" border-b border-zinc-400 w-[90%] px-1 flex gap-2">
             <input
+              onChange={(e)=> searchHandler(e)}
+              value={search}
               className=" focus:outline-none focus:border-none mb-1 w-full"
               placeholder="Search your contacts"
             />
