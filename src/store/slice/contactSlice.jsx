@@ -14,8 +14,7 @@ export const contactSlice = createSlice({
         state.value = JSON.parse(localStorage.getItem('contacts')) || [];
     },
     setContact: (state, action) => {
-      localStorage.setItem('contacts', JSON.stringify([...state.value, action.payload]));
-      console.log(state.value);
+      localStorage.setItem('contacts', JSON.stringify(action.payload));
     }
   },
 })

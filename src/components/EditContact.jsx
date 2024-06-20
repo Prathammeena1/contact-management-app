@@ -1,28 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { load, addNewContact } from "../store/reducers/contactAction";
+import { load, editContact } from "../store/reducers/contactAction";
 import { nanoid } from "@reduxjs/toolkit";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const AddContact = () => {
+const EditContact = () => {
   const dispatch = useDispatch();
-  const [name, setname] = useState("");
-  const [email, setemail] = useState("");
-  const [number, setnumber] = useState("");
-  const [image, setimage] = useState("");
+
+  const {id} = useParams()
+  const {value} = useSelector(state=>state.contactSlice)
+  const currentContact = value.find(contact => contact.id == id)
+
+  const [name, setname] = useState(currentContact.name);
+  const [email, setemail] = useState(currentContact.email);
+  const [number, setnumber] = useState(currentContact.number);
+  const [image, setimage] = useState(currentContact.image);
   
   const navigate = useNavigate()
   const submitHandler = (e) => {
     e.preventDefault();
     const obj = {
-      id:nanoid(),
-      name,
-      email,
-      number,
-      image,
-    };
-    // console.log(obj)
-    dispatch(addNewContact(obj));
+        name,
+        email,
+        number,
+        image,
+        id,
+    }
+    dispatch(editContact(id,obj))
     navigate('/')
   };
 
@@ -36,7 +40,7 @@ const AddContact = () => {
           onSubmit={submitHandler}
           className="col-span-1 min-w-[30vw] min-h-[25vw] flex flex-col items-center justify-center border-dashed border-2 border-gray-300 rounded-lg p-4"
         >
-          <p className="text-xl font-semibold">Add New Member</p>
+          <p className="text-xl font-semibold">Edit Contact</p>
           <input
             required
             value={image}
@@ -74,7 +78,7 @@ const AddContact = () => {
             className="border rounded px-4 py-2 mt-2 w-full text-center"
           />
           <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded">
-            Add
+            Done
           </button>
         </form>
       </div>
@@ -82,4 +86,4 @@ const AddContact = () => {
   );
 };
 
-export default AddContact;
+export default EditContact;

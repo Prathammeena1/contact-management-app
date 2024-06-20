@@ -4,6 +4,7 @@ import AddContact from "../components/AddContact";
 import Home from "../components/Home";
 import MyProfile from "../components/MyProfile";
 import PageNotFound from "../components/PageNotFound";
+import EditContact from "../components/EditContact";
 
 const MainRouter = () => {
   return (
@@ -11,7 +12,7 @@ const MainRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/addContact" element={<AddContact />} />
         <Route path="/myProfile" element={<MyProfile />} />
-
+        <Route path="/editContact/:id" element={<EditContact />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
