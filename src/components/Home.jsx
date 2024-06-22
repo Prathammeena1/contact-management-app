@@ -7,29 +7,20 @@ import { Link } from "react-router-dom";
 const Home =  () => {
   
   const dispatch = useDispatch();
+
+  const {contacts}= useSelector((state) => state.contactSlice);
+
   
-  const allContacts = useSelector((state) => state.contactSlice.value)
-
-
-  const [contacts,setcontact] = useState(allContacts);
-
-  const [search, setsearch] = useState("")
-
   const searchHandler = (e)=>{
-    setsearch(e.target.value);
-    if(e.target.value !== ""){
-      setcontact(contacts.filter((contact)=> contact.name.toLowerCase().includes(e.target.value.toLowerCase())))
-    }else{
-      setcontact(allContacts)
-    }
-
+    
   }
 
   useEffect(() => {
     dispatch(load());
-  }, [false]);
-
-
+  },[]);
+  console.log(contacts)
+  
+  
   const deleteContactHandler = (id)=>{
     dispatch(deleteContact(id))
   }
@@ -43,7 +34,7 @@ const Home =  () => {
           <div className=" border-b border-zinc-400 w-[90%] px-1 flex gap-2">
             <input
               onChange={(e)=> searchHandler(e)}
-              value={search}
+              // value=
               className=" focus:outline-none focus:border-none mb-1 w-full bg-transparent"
               placeholder="Search your contacts"
             />
@@ -51,14 +42,14 @@ const Home =  () => {
 
           </div>
           <select name="type" className="px-2 bg-transparent">
-          <option className="bg-transparent" value="allContacts">All Contacts</option>
+          <option className="bg-transparent" value="value">All Contacts</option>
           <option className="bg-transparent" value="favorites">Favorites</option>
           <option className="bg-transparent" value="recentlyAdded">Recently Added</option>
         </select>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-6">
-          { contacts ? contacts.map((contact, index) => (
+        <div className="grid grid-cols-4 gap-6">
+          { contacts.length > 0 ? contacts.map((contact, index) => (
             <div
               key={index}
               className="bg-zinc-800 rounded-lg shadow-md p-4 flex flex-col items-center"
@@ -76,7 +67,7 @@ const Home =  () => {
                 <div onClick={()=> deleteContactHandler(contact.id)}><Button style="fill" text='delete' /></div>
               </div>
             </div>
-          )) : <h1>No Contacts Yet!</h1>}
+          )) : <h1 className="text-white">Loading....</h1>}
         </div>
       </div>
   );

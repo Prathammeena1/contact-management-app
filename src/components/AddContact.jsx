@@ -21,7 +21,6 @@ const AddContact = () => {
       number,
       image,
     };
-    // console.log(obj)
     dispatch(addNewContact(obj));
     navigate('/')
   };

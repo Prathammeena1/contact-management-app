@@ -1,24 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { useDispatch } from 'react-redux';
-import { json } from 'react-router-dom';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: JSON.parse(localStorage.getItem('contacts')) || [],
-}
+  contacts: [],
+};
 
-export const contactSlice = createSlice({
-  name: 'contacts',
+const productSlice = createSlice({
   initialState,
+  name: "products",
   reducers: {
-    load: (state,action)=>{
-        state.value = JSON.parse(localStorage.getItem('contacts')) || [];
+    load: (state, action) => {
+      state.contacts = JSON.parse(localStorage.getItem("contacts"));
     },
     setContact: (state, action) => {
-      localStorage.setItem('contacts', JSON.stringify(action.payload));
-    }
+      localStorage.setItem("contacts",JSON.stringify(action.payload));
+      load();
+    },
   },
-})
+});
 
+export default productSlice.reducer;
 
-export default contactSlice.reducer
-export const {load,setContact} = contactSlice.actions
+export const { load,setContact } = productSlice.actions;
