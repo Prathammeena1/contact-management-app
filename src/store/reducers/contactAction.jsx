@@ -24,8 +24,8 @@ export const deleteContact = (id)=> (dispatch,getState)=>{
 }
 
 export const editContact = (id,obj)=> (dispatch,getState)=>{
-    const {value} = getState().contactSlice
-    const copyValue = [...value]
+    const {contacts} = getState().contactSlice
+    const copyValue = [...contacts]
     const index = copyValue.findIndex(item => item.id === id);
     copyValue[index] = obj
     dispatch(setContact(copyValue));    

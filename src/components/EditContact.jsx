@@ -8,8 +8,8 @@ const EditContact = () => {
   const dispatch = useDispatch();
 
   const {id} = useParams()
-  const {value} = useSelector(state=>state.contactSlice)
-  const currentContact = value.find(contact => contact.id == id)
+  const {contacts} = useSelector(state=>state.contactSlice)
+  const currentContact = contacts.find(contact => contact.id == id)
 
   const [name, setname] = useState(currentContact.name);
   const [email, setemail] = useState(currentContact.email);
