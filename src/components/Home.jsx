@@ -49,7 +49,7 @@ const Home =  () => {
           </div>
         </div>
         <div className="grid grid-cols-4 gap-6">
-          { contacts.length > 0 ? contacts.map((contact, index) => (
+          { contacts ? (contacts.length > 0 ? contacts.map((contact, index) => (
             <div
               key={index}
               className="bg-zinc-800 rounded-lg shadow-md p-4 flex flex-col items-center"
@@ -67,7 +67,7 @@ const Home =  () => {
                 <div onClick={()=> deleteContactHandler(contact.id)}><Button style="fill" text='delete' /></div>
               </div>
             </div>
-          )) : <h1 className="text-white">Loading....</h1>}
+          )) : <h1 className="text-white">Loading....</h1>) : <h1>No contact found!</h1>}
         </div>
       </div>
   );

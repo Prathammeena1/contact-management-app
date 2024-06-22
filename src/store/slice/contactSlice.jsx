@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  contacts: [],
+  contacts: null,
 };
 
 const productSlice = createSlice({
   initialState,
-  name: "products",
+  name: "contacts",
   reducers: {
     load: (state, action) => {
       state.contacts = JSON.parse(localStorage.getItem("contacts"));

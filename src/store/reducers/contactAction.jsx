@@ -5,8 +5,11 @@ export {load} from "../slice/contactSlice";
 
 export const addNewContact = (obj)=> (dispatch,getState)=>{
     const {contacts} = getState().contactSlice
-    console.log(obj)
-    dispatch(setContact([...contacts,obj]));    
+    if(contacts == null){
+        dispatch(setContact([obj]));    
+    }else{
+        dispatch(setContact([...copyValue,obj]));    
+    }
     dispatch(load())
     toast.success('Contact Added Successfully!',{
         theme:'dark'
@@ -14,9 +17,13 @@ export const addNewContact = (obj)=> (dispatch,getState)=>{
 }
 
 export const deleteContact = (id)=> (dispatch,getState)=>{
-    const {value} = getState().contactSlice
-    const deletedContacts = value.filter(contact => contact.id !== id)
-    dispatch(setContact(deletedContacts));    
+    const {contacts} = getState().contactSlice
+    const deletedContacts = contacts.filter(contact => contact.id !== id)
+    if(contacts.length == 1){
+        dispatch(setContact(null));
+    }else{
+        dispatch(setContact(deletedContacts));    
+    }
     dispatch(load())
     toast.success('Contact Deleted Successfully!',{
         theme:'dark'
