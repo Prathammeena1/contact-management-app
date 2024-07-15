@@ -5,6 +5,7 @@ export {load} from "../slice/contactSlice";
 
 export const addNewContact = (obj)=> (dispatch,getState)=>{
     const {contacts} = getState().contactSlice
+    const copyValue = [...contacts]
     if(contacts == null){
         dispatch(setContact([obj]));    
     }else{

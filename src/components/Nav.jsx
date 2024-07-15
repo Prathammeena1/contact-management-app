@@ -24,7 +24,7 @@ const Nav = () => {
       >
         <span className='font-["montserrat"]'> Add Contact</span>
       </NavLink>
-      <NavLink
+      {/* <NavLink
         to="/myProfile"
         className={(e) =>
           e.isActive
@@ -33,7 +33,7 @@ const Nav = () => {
         }
       >
         <span className='font-["montserrat"]'> My Profile</span>
-      </NavLink>
+      </NavLink> */}
     </nav>
   );
 };

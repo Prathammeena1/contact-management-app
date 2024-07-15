@@ -29,7 +29,7 @@ const Home =  () => {
   return (
       <div className="bg-zinc-900 rounded-lg w-full overflow-auto p-6 right">
         <div className="flex justify-between items-center mb-6 w-full px-1">
-          <div className="logo text-3xl font-bold">ContactKeeper</div>
+          <div className="logo text-3xl font-bold flex gap-2 items-center"> <img className="h-8" src="/svg/logo.svg" alt="" /> Contact Keeper</div>
           <div className="w-[40%] flex gap-2">
           <div className=" border-b border-zinc-400 w-[90%] px-1 flex gap-2">
             <input
