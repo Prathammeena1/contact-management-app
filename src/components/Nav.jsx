@@ -8,7 +8,7 @@ const Nav = () => {
           to="/"
           className={(e) =>
             e.isActive
-              ? "md:text-[1.3vw] text-xl font-medium ri-home-fill transition-all ease-in-out"
+              ? "md:text-[1.3vw] text-xl font-medium text-blue-400 ri-home-fill transition-all ease-in-out"
               : "md:text-[1.2vw] text-lg  font-medium  ri-home-line transition-all ease-in-out"
           }
         >
@@ -18,7 +18,7 @@ const Nav = () => {
         to="/addContact"
         className={(e) =>
           e.isActive
-            ? "md:text-[1.3vw] text-xl font-medium ri-add-circle-fill transition-all ease-in-out"
+            ? "md:text-[1.3vw] text-xl font-medium text-blue-400 ri-add-circle-fill transition-all ease-in-out"
             : "md:text-[1.2vw] text-lg font-medium  ri-add-circle-line transition-all ease-in-out"
         }
       >

@@ -33,7 +33,7 @@ const EditContact = () => {
   return (
     <div className="bg-zinc-900 rounded-lg w-full overflow-auto p-6 right">
       <div className="flex justify-between items-center mb-6 w-full px-1">
-      <div className="logo text-3xl font-bold flex gap-2 items-center"> <img className="h-8" src="/svg/logo.svg" alt="" /> Contact Keeper</div>
+      <div className="logo md:text-3xl text-sm font-bold flex gap-2 items-center"> <img className="h-8" src="/svg/logo.svg" alt="" /> Contact Keeper</div>
       </div>
       <div className="h-[75vh] w-full flex justify-center items-center">
         <form
