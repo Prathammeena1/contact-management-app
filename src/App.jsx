@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <div className="min-h-screen h-screen bg-zinc-800 text-zinc-200 flex  p-6 flex-col items-center">
-        <div className="w-full h-screen flex gap-3 overflow-hidden">
+        <div className="w-full h-screen flex gap-3 overflow-hidden flex-col md:flex-row">
           <Nav />
           <MainRouter />
           <ToastContainer
