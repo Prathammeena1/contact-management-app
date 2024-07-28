@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  contacts: null,
+  contacts: [],
 };
 
 const productSlice = createSlice({
@@ -9,7 +9,7 @@ const productSlice = createSlice({
   name: "contacts",
   reducers: {
     load: (state, action) => {
-      state.contacts = JSON.parse(localStorage.getItem("contacts"));
+      state.contacts = JSON.parse(localStorage.getItem("contacts")) || [];
     },
     setContact: (state, action) => {
       localStorage.setItem("contacts",JSON.stringify(action.payload));

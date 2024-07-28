@@ -6,7 +6,7 @@ export {load} from "../slice/contactSlice";
 export const addNewContact = (obj)=> (dispatch,getState)=>{
     const {contacts} = getState().contactSlice
     const copyValue = [...contacts]
-    if(contacts == null){
+    if(contacts.length == 0){
         dispatch(setContact([obj]));    
     }else{
         dispatch(setContact([...copyValue,obj]));    
@@ -19,9 +19,10 @@ export const addNewContact = (obj)=> (dispatch,getState)=>{
 
 export const deleteContact = (id)=> (dispatch,getState)=>{
     const {contacts} = getState().contactSlice
-    const deletedContacts = contacts.filter(contact => contact.id !== id)
+    const copyValue = [...contacts]
+    const deletedContacts = copyValue.filter(contact => contact.id !== id)
     if(contacts.length == 1){
-        dispatch(setContact(null));
+        dispatch(setContact([]));
     }else{
         dispatch(setContact(deletedContacts));    
     }

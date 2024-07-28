@@ -61,14 +61,14 @@ const Home = () => {
                 <img
                   src={contact.image}
                   alt="Member"
-                  className="rounded-full mb-4 w-24 h-24"
+                  className="rounded-full mb-4 w-24 h-24 object-cover"
                 />
                 <p className="text-xl font-semibold text-[1.7vw]">
                   {" "}
                   {contact.name}
                 </p>
                 <p className="text-gray-500 text-xs md:text-[1vw]">{contact.email}</p>
-                <p className="text-gray-500 text-xs md:text-[1vw]">{contact.number}</p>
+                <p className="text-gray-300 text-xs md:text-[1vw] mt-2">{contact.number}</p>
                 <div className="flex mt-4 space-x-2">
                   <Link to={`/editContact/${contact.id}`}>
                     <Button style="border" text="edit" />
